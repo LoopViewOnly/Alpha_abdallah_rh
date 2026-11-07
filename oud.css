@@ -1,0 +1,270 @@
+/* GENERAL SETTINGS */
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: #100e0b;
+    color: #e8dfd0;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.8;
+}
+
+/* HEADER */
+
+header {
+    text-align: center;
+    padding: 35px 20px;
+    background-color: #17130e;
+    border-bottom: 1px solid #71572c;
+}
+
+header h1 {
+    font-size: 65px;
+    letter-spacing: 18px;
+    color: #d6b36a;
+    margin: 0;
+}
+
+.subtitle {
+    color: #b7a58a;
+    letter-spacing: 5px;
+    font-size: 12px;
+    margin-top: -5px;
+}
+
+/* NAVIGATION */
+
+nav {
+    margin-top: 25px;
+}
+
+nav a {
+    color: #e8dfd0;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #d6b36a;
+}
+
+/* MAIN CONTENT */
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 25px;
+}
+
+/* HERO SECTION */
+
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 50px 0;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero h2 {
+    font-size: 48px;
+    line-height: 1.2;
+    color: #d6b36a;
+    margin: 10px 0 20px;
+}
+
+.hero p {
+    color: #c7bba8;
+}
+
+.hero img {
+    width: 45%;
+    max-width: 450px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #71572c;
+}
+
+.gold-text {
+    color: #d6b36a !important;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+/* BUTTON */
+
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: 1px solid #d6b36a;
+    color: #d6b36a;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 12px;
+    transition: all 0.3s;
+}
+
+.button:hover {
+    background-color: #d6b36a;
+    color: #100e0b;
+}
+
+/* CONTENT CARDS */
+
+.card {
+    margin: 35px 0;
+    padding: 35px;
+    background-color: #19150f;
+    border: 1px solid #33291b;
+    border-radius: 8px;
+}
+
+.card h2 {
+    color: #d6b36a;
+    font-size: 32px;
+    margin-top: 5px;
+}
+
+.card p {
+    color: #c7bba8;
+}
+
+/* HIGHLIGHT BOX */
+
+.highlight {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #211b12;
+    border-left: 3px solid #d6b36a;
+}
+
+.highlight h3 {
+    color: #d6b36a;
+}
+
+/* SCENT FEATURES */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.feature {
+    padding: 20px;
+    background-color: #211b12;
+    border: 1px solid #3a2d1c;
+    border-radius: 6px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    border-color: #d6b36a;
+}
+
+.feature h3 {
+    color: #d6b36a;
+    font-size: 22px;
+    margin-top: 0;
+}
+
+/* FRAGRANCE NOTES */
+
+.notes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.notes p {
+    padding: 20px;
+    background-color: #211b12;
+    border-radius: 5px;
+}
+
+.notes strong {
+    color: #d6b36a;
+    letter-spacing: 2px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #17130e;
+    border-top: 1px solid #71572c;
+}
+
+footer h2 {
+    color: #d6b36a;
+    letter-spacing: 12px;
+}
+
+footer p {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #b7a58a;
+}
+
+footer .copyright {
+    letter-spacing: 1px;
+    margin-top: 25px;
+}
+
+/* MOBILE FRIENDLY DESIGN */
+
+@media (max-width: 700px) {
+
+    header h1 {
+        font-size: 45px;
+        letter-spacing: 10px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px 8px;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero h2 {
+        font-size: 36px;
+    }
+
+    .hero img {
+        width: 100%;
+        height: auto;
+        max-height: 350px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .features,
+    .notes {
+        grid-template-columns: 1fr;
+    }
+}
+.backtothefirstpage{
+    background-color: #211b12;
+    color: #fff;
+}

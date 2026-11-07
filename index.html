@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla Notes & 9PM Night Out Experience</title>
+    <link rel
+
+    <-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        taupe: {
+                            950: '#0e0d0c',
+                            900: '#161513',
+                            800: '#211f1c',
+                            700: '#2d2a26',
+                            600: '#3d3934'
+                        },
+                        beige: {
+                            50: '#fcfaf7',
+                            100: '#f7f2ea',
+                            200: '#eee3d3',
+                            300: '#e8d3b9', // Key beige color
+                            400: '#d9bb96',
+                            500: '#c29f70',
+                            600: '#a37f52'
+                        },
+                        sand: '#C2A686',
+                        cream: '#FDFBF7'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0e0d0c;
+            color: #f7f2ea;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(22, 21, 19, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(232, 211, 185, 0.12);
+        }
+
+        .glass-beige {
+            background: rgba(33, 31, 28, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(232, 211, 185, 0.25);
+        }
+
+        .beige-gradient-text {
+            background: linear-gradient(135deg, #FDFBF7 0%, #E8D3B9 40%, #C2A686 80%, #a37f52 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .beige-glow {
+            box-shadow: 0 0 45px -10px rgba(232, 211, 185, 0.18);
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(232, 211, 185, 0.4);
+            box-shadow: 0 15px 30px -10px rgba(232, 211, 185, 0.15);
+        }
+
+        /* Custom Range Slider */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+
+        input[type=range]:focus {
+            outline: none;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+            background: #2d2a26;
+            border-radius: 4px;
+            border: 1px solid rgba(232, 211, 185, 0.2);
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            height: 22px;
+            width: 22px;
+            border-radius: 50%;
+            background: #E8D3B9;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -7px;
+            box-shadow: 0 0 10px rgba(232, 211, 185, 0.6);
+            transition: transform 0.15s ease;
+        }
+
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0e0d0c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2d2a26;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e8d3b9;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-beige-300 selection:text-taupe-950">
+
+    <header class="w-full sticky top-0 z-50 glass-card border-b border-beige-300/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-beige-600 via-beige-300 to-cream flex items-center justify-center shadow-lg shadow-beige-300/10 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-leaf text-taupe-950 text-base"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl font-bold tracking-wider text-cream leading-none">VANILLA</span>
+                    <span class="text-[9px] tracking-[0.3em] text-beige-300 font-semibold uppercase mt-1">Scent Architecture</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#about" class="hover:text-beige-300 transition-colors">Vanilla Essence</a>
+                <a href="#timeline" class="hover:text-beige-300 transition-colors">Progression Timeline</a>
+                <a href="#calculator" class="hover:text-beige-300 transition-colors">Spray Calculator</a>
+                <a href="#quiz" class="hover:text-beige-300 transition-colors">Scent Match Quiz</a>
+                <a href="#nightout" class="hover:text-beige-300 transition-colors">9PM Night Out</a>
+            </nav>
+
+            <a href="#nightout" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-beige-300 to-beige-400 text-taupe-950 font-bold text-xs uppercase tracking-wider hover:shadow-lg hover:shadow-beige-300/20 transition-all">
+                The 9PM Vibe
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+
+        <section id="about" class="relative max-w-7xl mx-auto px-6 pt-16 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-8">
+                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-beige-300/10 border border-beige-300/30 text-beige-300 text-xs font-semibold tracking-wider uppercase">
+                    <i class="fa-solid fa-sparkles"></i>
+                    <span>Olfactory Deep Dive</span>
+                </div>
+
+                <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-cream leading-[1.1]">
+                    The Art of <span class="beige-gradient-text italic font-serif">Vanilla Notes</span> in Fragrance
+                </h1>
+
+                <p class="text-gray-300 text-lg sm:text-xl font-light leading-relaxed">
+                    Vanilla is far more than a simple sweet scent—it is the ultimate anchor of luxury evening fragrances. In cold night air, vanilla creates an opulent warm aura that projects effortlessly through winter layers.
+                </p>
+
+                <!-- Highlight Box -->
+                <div class="glass-beige p-6 rounded-2xl border-l-4 border-beige-300 flex items-start space-x-4">
+                    <div class="p-3 bg-beige-300/20 rounded-xl text-beige-300 text-xl">
+                        <i class="fa-solid fa-moon"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-cream text-base">Why Vanilla Works in Winter</h4>
+                        <p class="text-xs text-gray-300 mt-1 leading-relaxed">
+                            Unlike citrus or light florals, vanilla’s dense molecular structure resists rapid evaporation in freezing air. Blended with spices like cinnamon and fruits like apple—as in <span class="text-beige-300 font-semibold">Afnan 9PM</span>—it crafts a cozy, irresistible sillage.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#timeline" class="px-8 py-4 rounded-xl bg-gradient-to-r from-beige-300 to-beige-400 text-taupe-950 font-bold text-xs tracking-wider uppercase hover:shadow-xl hover:shadow-beige-300/20 transition-all">
+                        Test 12h Timeline
+                    </a>
+                    <a href="#calculator" class="px-8 py-4 rounded-xl glass-card text-cream font-medium text-xs tracking-wider uppercase hover:bg-white/10 transition-all">
+                        Calculate Sprays
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Image Showcase -->
+            <div class="lg:col-span-5 relative flex justify-center">
+                <div class="w-full max-w-md rounded-3xl p-5 glass-beige beige-glow">
+                    <div class="relative overflow-hidden rounded-2xl aspect-[4/5] group">
+                        <img src="https://www.thespruceeats.com/thmb/7p5jKx5tMhx4n758Nsk1IyBRzt0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-85652514-5a36f36847c2660036f5af8f.jpg" 
+                             alt="Vanilla Pods and Spices" 
+                             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 filter brightness-90">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-taupe-950 via-taupe-950/20 to-transparent"></div>
+                        
+                        <div class="absolute bottom-6 left-6 right-6 space-y-2">
+                            <span class="text-beige-300 text-xs font-mono uppercase tracking-widest block">Gourmand Foundation</span>
+                            <h3 class="font-serif text-2xl font-bold text-cream">Bourbon Vanilla Pods</h3>
+                            <p class="text-xs text-gray-300 font-light">Warm, cozy, and long-lasting. The essential base for cold winter nights out.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline" class="py-20 border-t border-beige-300/10 bg-taupe-900/60">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-beige-300 font-semibold tracking-widest text-xs uppercase bg-beige-300/10 px-4 py-1.5 rounded-full border border-beige-300/20">
+                        Scent Evolution
+                    </span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold text-cream">12-Hour Scent Progression Timeline</h2>
+                    <p class="text-gray-400 text-sm sm:text-base">
+                        Drag the slider to see how **Afnan 9PM** transitions on your skin over time—from the crisp apple opening to the deep vanilla drydown.
+                    </p>
+                </div>
+
+                <div class="glass-beige p-8 sm:p-12 rounded-3xl beige-glow max-w-4xl mx-auto space-y-10">
+                    <!-- Slider Interface -->
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-mono text-gray-400 uppercase tracking-widest">Time Since Application</span>
+                            <span id="timeline-time" class="font-serif text-3xl font-bold text-beige-300">0 Hours (Initial Spray)</span>
+                        </div>
+                        
+                        <input type="range" id="timeline-slider" min="0" max="12" step="1" value="0" class="w-full" oninput="updateTimeline(this.value)">
+                        
+                        <div class="flex justify-between text-[11px] font-mono text-gray-400 pt-1">
+                            <span>0h (Opening)</span>
+                            <span>3h (Heart)</span>
+                            <span>6h (Drydown)</span>
+                            <span>12h+ (Skin Scent)</span>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Card Output -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-taupe-950/80 p-6 rounded-2xl border border-beige-300/20">
+                        <div class="md:col-span-5 space-y-4">
+                            <span id="timeline-stage" class="px-3 py-1 bg-beige-300/20 text-beige-300 text-xs font-bold uppercase rounded-full tracking-wider inline-block">
+                                Top Notes Phase
+                            </span>
+                            <h3 id="timeline-title" class="font-serif text-2xl font-bold text-cream">Fresh Apple & Cinnamon Explosion</h3>
+                            
+                            <!-- Projection Meter -->
+                            <div class="space-y-1">
+                                <div class="flex justify-between text-xs text-gray-300">
+                                    <span>Projection Distance:</span>
+                                    <span id="timeline-projection-text" class="text-beige-300 font-bold">6 - 8 Feet</span>
+                                </div>
+                                <div class="w-full bg-taupe-800 h-2 rounded-full overflow-hidden">
+                                    <div id="timeline-projection-bar" class="bg-gradient-to-r from-beige-400 to-beige-300 h-full w-[90%] transition-all duration-300"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="md:col-span-7 space-y-4 border-t md:border-t-0 md:border-l border-beige-300/10 pt-4 md:pt-0 md:pl-6">
+                            <p id="timeline-desc" class="text-gray-300 text-sm leading-relaxed">
+                                The opening burst strikes with crisp wild apple, spicy cinnamon, bergamot, and fresh lavender. High energy and loud projection ideal for making an immediate entrance.
+                            </p>
+                            
+                            <div>
+                                <h4 class="text-[11px] uppercase font-bold text-gray-400 tracking-wider mb-2">Dominant Notes Active:</h4>
+                                <div id="timeline-notes" class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-taupe-800 text-beige-300 text-xs rounded-lg border border-beige-300/20">Crisp Apple</span>
+                                    <span class="px-3 py-1 bg-taupe-800 text-beige-300 text-xs rounded-lg border border-beige-300/20">Cinnamon</span>
+                                    <span class="px-3 py-1 bg-taupe-800 text-beige-300 text-xs rounded-lg border border-beige-300/20">Wild Lavender</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="calculator" class="py-20 border-t border-beige-300/10">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-beige-300 font-semibold tracking-widest text-xs uppercase bg-beige-300/10 px-4 py-1.5 rounded-full border border-beige-300/20">
+                        Application Assistant
+                    </span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold text-cream">Smart Spray & Performance Calculator</h2>
+                    <p class="text-gray-400 text-sm sm:text-base">
+                        Select your event and temperature to get exact spray recommendations so you project without overpowering the room.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start max-w-5xl mx-auto">
+                    <!-- Controls -->
+                    <div class="lg:col-span-6 glass-card p-8 rounded-3xl space-y-6">
+                        <!-- Occasion -->
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase font-bold text-gray-300 tracking-wider block">1. Select Occasion</label>
+                            <select id="calc-occasion" onchange="calculateSprays()" class="w-full bg-taupe-950 border border-beige-300/30 rounded-xl px-4 py-3 text-cream text-sm focus:border-beige-300 focus:outline-none">
+                                <option value="clubbing">Nightclub / Loud Party (High Impact)</option>
+                                <option value="date">Date Night / Intimate Evening</option>
+                                <option value="casual" selected>Casual Evening / Hanging Out</option>
+                                <option value="office">Office / Classroom / Small Indoors</option>
+                            </select>
+                        </div>
+
+                        <!-- Temperature -->
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase font-bold text-gray-300 tracking-wider block">2. Weather Temperature</label>
+                            <select id="calc-temp" onchange="calculateSprays()" class="w-full bg-taupe-950 border border-beige-300/30 rounded-xl px-4 py-3 text-cream text-sm focus:border-beige-300 focus:outline-none">
+                                <option value="freezing">Freezing / Very Cold (< 5°C / 40°F)</option>
+                                <option value="cool" selected>Cool Winter / Autumn (5°C - 15°C / 40°F - 60°F)</option>
+                                <option value="mild">Mild Indoor Air (15°C - 22°C / 60°F - 72°F)</option>
+                            </select>
+                        </div>
+
+                        <div class="p-4 bg-taupe-950/50 rounded-xl border border-beige-300/10 text-xs text-gray-400 flex items-center space-x-3">
+                            <i class="fa-solid fa-circle-info text-beige-300 text-lg"></i>
+                            <span>Afnan 9PM is high concentration (Eau de Parfum). Overspraying in warm weather can be overwhelming due to heavy vanilla notes.</span>
+                        </div>
+                    </div>
+
+                    <!-- Recommendation Output Card -->
+                    <div class="lg:col-span-6 glass-beige p-8 rounded-3xl border border-beige-300/30 space-y-6">
+                        <div class="text-center pb-4 border-b border-beige-300/10">
+                            <span class="text-xs font-mono text-beige-300 uppercase tracking-widest">Recommended Dose</span>
+                            <div id="calc-result-count" class="font-serif text-6xl font-bold text-cream mt-2">4 Sprays</div>
+                            <span id="calc-result-vibe" class="text-xs text-gray-300 font-medium mt-1 block">Optimal Balance for Casual Evening</span>
+                        </div>
+
+                        <!-- Placement Map -->
+                        <div class="space-y-3">
+                            <h4 class="text-xs font-bold text-gray-300 uppercase tracking-wider">Application Target Map:</h4>
+                            <ul id="calc-result-targets" class="space-y-2 text-xs text-gray-300">
+                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-beige-300"></i> <span>2x Sides of Neck (Behind Ears)</span></li>
+                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-beige-300"></i> <span>1x Back of Neck / Collar</span></li>
+                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-beige-300"></i> <span>1x Chest or Jacket Inner Lining</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="pt-4 border-t border-beige-300/10 flex justify-between items-center text-xs">
+                            <span class="text-gray-400">Estimated Duration:</span>
+                            <span id="calc-result-longevity" class="text-beige-300 font-bold">8 - 10 Hours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz" class="py-20 border-t border-beige-300/10 bg-taupe-900/40">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-beige-300 font-semibold tracking-widest text-xs uppercase bg-beige-300/10 px-4 py-1.5 rounded-full border border-beige-300/20">
+                        Match Finder
+                    </span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold text-cream">Fragrance Compatibility Quiz</h2>
+                    <p class="text-gray-400 text-sm sm:text-base">
+                        Answer 3 quick questions to see if **Afnan 9PM** fits your personal scent style.
+                    </p>
+                </div>
+
+                <div class="glass-beige p-8 sm:p-12 rounded-3xl max-w-2xl mx-auto border border-beige-300/30">
+                    
+                    <!-- Quiz Container -->
+                    <div id="quiz-body" class="space-y-8">
+                        
+                        <!-- Question 1 -->
+                        <div id="q1" class="quiz-step space-y-4">
+                            <span class="text-xs font-mono text-beige-300 uppercase tracking-widest">Question 1 of 3</span>
+                            <h3 class="font-serif text-2xl font-bold text-cream">What is your primary wearing scenario?</h3>
+                            <div class="space-y-3">
+                                <button onclick="answerQuiz(1, 3)" class="w-full text-left glass-card p-4 rounded-xl border border-beige-300/20 hover:border-beige-300 transition-all text-sm text-gray-200">
+                                    🔥 Evening parties, nightlife, and social events
+                                </button>
+                                <button onclick="answerQuiz(1, 2)" class="w-full text-left glass-card p-4 rounded-xl border border-beige-300/20 hover:border-beige-300 transition-all text-sm text-gray-200">
+                                    🍷 Dates, cozy lounges, and smaller gatherings
+                                </button>
+                                <button onclick="answerQuiz(1, 1)" class="w-full text-left glass-card p-4 rounded-xl border border-beige-300/20 hover:border-beige-300 transition-all text-sm text-gray-200">
+                                    💼 Daily office or daytime wearing
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div id="q2" class="quiz-step hidden space-y-4">
+                            <span class="text-xs font-mono text-beige-300 uppercase tracking-widest">Question 2 of 3</span>
+                            <h3 class="font-serif text-2xl font-bold text-cream">How do you feel about sweet/vanilla notes?</h3>
+                            <div class="space-y-3">
+                                <button onclick="answerQuiz(2, 3)" class="w-full text-left glass-card p-4 rounded-xl border border-beige-300/20 hover:border-beige-300 transition-all text-sm text-gray-200">
+                                    😍 Love rich, sweet gourmand scents (Vanilla, Tonka, Amber)
+                                </button>
+                                <button onclick="answerQuiz(2, 2)" class="w-full text-left glass-card p-4 rounded-xl border border-beige-300/20 hover:border-beige-300 transition-all text-sm text-gray-200">
+                                    ⚖️ Enjoy sweetness only if balanced by spices or fruits
+                                </button>
+                                <button onclick="answerQuiz(2, 1)" class="w-full text-left glass-card p-4 rounded-xl border border-beige-300/20 hover:border-beige-300 transition-all text-sm text-gray-200">
+                                    🌿 Prefer dry woods, citrus, or clean fresh scents
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div id="q3" class="quiz-step hidden space-y-4">
+                            <span class="text-xs font-mono text-beige-300 uppercase tracking-widest">Question 3 of 3</span>
+                            <h3 class="font-serif text-2xl font-bold text-cream">What level of scent projection do you prefer?</h3>
+                            <div class="space-y-3">
+                                <button onclick="answerQuiz(3, 3)" class="w-full text-left glass-card p-4 rounded-xl border border-beige-300/20 hover:border-beige-300 transition-all text-sm text-gray-200">
+                                    🚀 Strong projection — I want people to smell me easily
+                                </button>
+                                <button onclick="answerQuiz(3, 2)" class="w-full text-left glass-card p-4 rounded-xl border border-beige-300/20 hover:border-beige-300 transition-all text-sm text-gray-200">
+                                    ✨ Moderate bubble — Noticeable up close
+                                </button>
+                                <button onclick="answerQuiz(3, 1)" class="w-full text-left glass-card p-4 rounded-xl border border-beige-300/20 hover:border-beige-300 transition-all text-sm text-gray-200">
+                                    🤫 Subtle skin scent only
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Quiz Result -->
+                        <div id="quiz-result" class="hidden text-center space-y-6">
+                            <div id="result-score" class="font-serif text-6xl font-bold text-beige-300">95% Match</div>
+                            <h3 id="result-title" class="font-serif text-2xl font-bold text-cream">Afnan 9PM is an Ideal Choice!</h3>
+                            <p id="result-desc" class="text-sm text-gray-300 leading-relaxed max-w-md mx-auto">
+                                You enjoy sweet, warm winter fragrances with strong projection and rich vanilla undertones. 9PM will be a powerful staple in your night-out rotation.
+                            </p>
+                            <button onclick="resetQuiz()" class="px-6 py-3 rounded-xl bg-beige-300 text-taupe-950 font-bold text-xs uppercase tracking-wider hover:bg-beige-400 transition-all">
+                                Retake Quiz
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="nightout" class="py-20 border-t border-beige-300/10">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="glass-beige p-8 sm:p-14 rounded-3xl border border-beige-300/30 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-beige-300/20 text-beige-300 text-xs font-semibold uppercase tracking-wider">
+                            <i class="fa-solid fa-star"></i>
+                            <span>Night Out Icon</span>
+                        </div>
+
+                        <h2 class="font-serif text-4xl sm:text-5xl font-bold text-cream">
+                            Why Vanilla Defines <span class="beige-gradient-text">Afnan 9PM</span>
+                        </h2>
+
+                        <p class="text-gray-300 text-base sm:text-lg leading-relaxed font-light">
+                            <strong>Afnan 9PM</strong> has earned massive popularity in the fragrance community specifically because of its masterful use of vanilla. Designed for evening clubbing, dates, and cold weather, it balances sweet gourmand warmth with vibrant spices.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="bg-taupe-950/70 p-4 rounded-xl border border-beige-300/10 space-y-1">
+                                <span class="text-beige-300 font-serif font-bold text-lg">Mute Resistance</span>
+                                <p class="text-xs text-gray-400">Vanilla molecular weight ensures scent pushes through heavy jackets and cold night air.</p>
+                            </div>
+                            <div class="bg-taupe-950/70 p-4 rounded-xl border border-beige-300/10 space-y-1">
+                                <span class="text-beige-300 font-serif font-bold text-lg">Irresistible Trail</span>
+                                <p class="text-xs text-gray-400">Leaves a memorable sweet sillage in crowded nightlife venues.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-sm rounded-2xl overflow-hidden glass-card p-4 border border-beige-300/30">
+                            <img src="9PM Night Out Perfume Advertisement (1).png" 
+                                 alt="Perfume Bottle Night Out" 
+                                 class="w-full aspect-[3/4] object-cover rounded-xl filter brightness-95"
+                                 onerror="this.src='https://placehold.co/600x800/161513/e8d3b9?text=9PM+Vanilla+Base'">
+                            
+                            <div class="absolute bottom-8 left-8 right-8 p-4 rounded-xl glass-beige text-center border border-beige-300/40">
+                                <span class="font-serif text-2xl font-bold text-cream block">9PM Night Out</span>
+                                <span class="text-[11px] text-beige-300 font-mono tracking-widest uppercase">Vanilla • Apple • Cinnamon</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-beige-300/10 bg-taupe-950 py-10 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-leaf text-beige-300 text-base"></i>
+                <span class="font-serif font-bold text-cream text-base">Vanilla & 9PM Experience</span>
+            </div>
+            <p>&copy; Vanilla Notes & Afnan 9PM Fragrance Guide. Built for perfume enthusiasts.</p>
+        </div>
+        <button class="other-notes-btn" onclick="window.location.href='notes.html'">
+    <i class="fa-solid fa-sparkles"></i>
+    Other Notes
+
+</button>
+    </footer>
+
+    <script>
+        document.getElementById("myButton").addEventListener("click", function () {
+    window.location.href = "oud.html";
+});
+        // 1. Timeline Data & Handler
+        const timelineSteps = [
+            {
+                time: '0 Hours (Initial Spray)',
+                stage: 'Top Notes Phase',
+                title: 'Fresh Apple & Cinnamon Burst',
+                projectionText: '6 - 8 Feet',
+                projectionWidth: '95%',
+                desc: 'The opening spray delivers crisp wild apple, energetic bergamot, lavender, and spicy cinnamon. Very bold, loud, and high energy.',
+                notes: ['Crisp Wild Apple', 'Cinnamon Spice', 'Bergamot Citrus', 'Lavender']
+            },
+            {
+                time: '2 - 3 Hours',
+                stage: 'Heart Transition',
+                title: 'Balanced Floral & Cinnamon Warmth',
+                projectionText: '4 - 5 Feet',
+                projectionWidth: '70%',
+                desc: 'The citrus settles as orange blossom and lily of the valley smooth out the sharp apple, creating a rich sweet bridge toward the base.',
+                notes: ['Orange Blossom', 'Warm Cinnamon', 'Lily of the Valley']
+            },
+            {
+                time: '5 - 6 Hours',
+                stage: 'Base Drydown',
+                title: 'Rich Vanilla & Amber Core',
+                projectionText: '2 - 3 Feet (Scent Bubble)',
+                projectionWidth: '45%',
+                desc: 'Vanilla becomes the dominant note, supported by tonka bean, patchouli, and warm amber. Sensual, cozy, and highly addictive.',
+                notes: ['Bourbon Vanilla', 'Amber Woods', 'Tonka Bean', 'Dark Patchouli']
+            },
+            {
+                time: '12+ Hours',
+                stage: 'Late Skin Scent',
+                title: 'Sweet Intimate Vanilla Shadow',
+                projectionText: 'Close Skin Distance',
+                projectionWidth: '20%',
+                desc: 'The fragrance remains as a soft, comforting vanilla-amber warmth close to skin and fabric for up to 12-14 hours.',
+                notes: ['Soft Vanilla', 'Musk Amber', 'Warm Tonka']
+            }
+        ];
+
+        function updateTimeline(val) {
+            let step = 0;+
+            if (val >= 2 && val < 5) step = 1;
+            else if (val >= 5 && val < 10) step = 2;
+            else if (val >= 10) step = 3;
+
+            const data = timelineSteps[step];
+            document.getElementById('timeline-time').innerText = val == 0 ? '0 Hours (Initial Spray)' : `${val} Hours After Spray`;
+            document.getElementById('timeline-stage').innerText = data.stage;
+            document.getElementById('timeline-title').innerText = data.title;
+            document.getElementById('timeline-projection-text').innerText = data.projectionText;
+            document.getElementById('timeline-projection-bar').style.width = data.projectionWidth;
+            document.getElementById('timeline-desc').innerText = data.desc;
+
+            const notesContainer = document.getElementById('timeline-notes');
+            notesContainer.innerHTML = data.notes.map(n => 
+                `<span class="px-3 py-1 bg-taupe-800 text-beige-300 text-xs rounded-lg border border-beige-300/20">${n}</span>`
+            ).join('');
+        }
+
+        // 2. Spray Calculator Function
+        function calculateSprays() {
+            const occasion = document.getElementById('calc-occasion').value;
+            const temp = document.getElementById('calc-temp').value;
+
+            let count = 4;
+            let vibe = 'Balanced Evening Wear';
+            let longevity = '8 - 10 Hours';
+            let targets = [
+                '2x Sides of Neck (Behind Ears)',
+                '1x Back of Neck / Hairline',
+                '1x Inner Jacket / Chest'
+            ];
+
+            if (occasion === 'clubbing') {
+                count = temp === 'freezing' ? 6 : 5;
+                vibe = 'High-Projection Nightclub Sillage';
+                longevity = '10 - 12+ Hours';
+                targets = [
+                    '2x Sides of Neck',
+                    '2x Wrists / Forearms',
+                    '1x Back of Neck',
+                    '1x Outer Outfit / Shirt'
+                ];
+            } else if (occasion === 'date') {
+                count = 3;
+                vibe = 'Intimate & Sensual Scent Bubble';
+                longevity = '7 - 9 Hours';
+                targets = [
+                    '1x Chest / Base of Throat',
+                    '2x Back of Ears'
+                ];
+            } else if (occasion === 'office') {
+                count = 2;
+                vibe = 'Subtle Inoffensive Vanilla Trace';
+                longevity = '6 - 8 Hours';
+                targets = [
+                    '1x Lower Chest / Under Shirt',
+                    '1x Back of Neck'
+                ];
+            }
+
+            document.getElementById('calc-result-count').innerText = `${count} Sprays`;
+            document.getElementById('calc-result-vibe').innerText = vibe;
+            document.getElementById('calc-result-longevity').innerText = longevity;
+
+            const targetsList = document.getElementById('calc-result-targets');
+            targetsList.innerHTML = targets.map(t => 
+                `<li class="flex items-center space-x-2"><i class="fa-solid fa-check text-beige-300"></i> <span>${t}</span></li>`
+            ).join('');
+        }
+
+        // 3. Quiz State & Handlers
+        let quizScore = 0;
+
+        function answerQuiz(q, score) {
+            quizScore += score;
+            document.getElementById(`q${q}`).classList.add('hidden');
+
+            if (q < 3) {
+                document.getElementById(`q${q+1}`).classList.remove('hidden');
+            } else {
+                showQuizResult();
+            }
+        }
+
+        function showQuizResult() {
+            document.getElementById('quiz-result').classList.remove('hidden');
+            
+            const scorePercent = Math.round((quizScore / 9) * 100);
+            document.getElementById('result-score').innerText = `${scorePercent}% Match`;
+
+            if (scorePercent >= 75) {
+                document.getElementById('result-title').innerText = 'Afnan 9PM is a Must-Have!';
+                document.getElementById('result-desc').innerText = 'You love warm, sweet vanilla scents with loud performance and great winter projection. 9PM fits your lifestyle perfectly.';
+            } else if (scorePercent >= 50) {
+                document.getElementById('result-title').innerText = 'Great Option for Night Out';
+                document.getElementById('result-desc').innerText = '9PM will suit your evening events well. Just adjust spray count depending on how close you are to others.';
+            } else {
+                document.getElementById('result-title').innerText = 'Consider Lighter Vanilla Alternatives';
+                document.getElementById('result-desc').innerText = 'You prefer subtle or fresher fragrances. You may want a less loud vanilla perfume for everyday use.';
+            }
+        }
+
+        function resetQuiz() {
+            quizScore = 0;
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('q1').classList.remove('hidden');
+            document.getElementById('q2').classList.add('hidden');
+            document.getElementById('q3').classList.add('hidden');
+        }
+    </script>
+
+    
+<a href="oud.html">
+  <button type="button">other notec</button>
+</a>
+</body>
+</html>
